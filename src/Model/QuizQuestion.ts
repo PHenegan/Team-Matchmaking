@@ -1,4 +1,3 @@
-import { JsxElement } from "typescript";
 import { QuizAnswer } from "./Types";
 
 /**
@@ -12,6 +11,4 @@ export default interface QuizQuestion {
 
     get answer(): QuizAnswer;
     set answer(answer: QuizAnswer);
-
-    view(): JsxElement;
 }
