@@ -1,0 +1,6 @@
+.form {
+    border-radius: 12px;
+    background-color: gray;
+    max-width: 50rem;
+    padding: 0.5rem;
+}
