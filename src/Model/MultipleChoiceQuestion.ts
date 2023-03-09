@@ -1,39 +1,45 @@
 import { JsxElement } from "typescript";
 import QuizQuestion from "./QuizQuestion";
 import { QuizAnswer } from "./Types";
-import Viewable from "./Viewable";
 
 /**
  * Represents a Multiple Choice question on a form, in which a user must choose
  * one option from a list of possible answers.
  */
-export default class MultipleChoiceQuestion implements QuizQuestion, Viewable {
+export default class MultipleChoiceQuestion implements QuizQuestion {
   private readonly _prompt: string;
-  private readonly _choices: string[];
-  private _answer: QuizAnswer;
+  private readonly _options: string[];
+  private _answer: string;
 
   /**
    * Creates a MultipleChoiceQuestion object from the given prompt and answer choices.
    * @param prompt the prompt for the question, i.e. what is being asked
-   * @param choices the list of possible answers which can be selected by the user
+   * @param options the list of possible answers which can be selected by the user
    */
-  public constructor(prompt: string, choices: string[]) {
+  public constructor(prompt: string, options: string[]) {
     this._prompt = prompt;
-    if (choices.length === 0) {
+    if (options.length === 0) {
       throw new Error("MultipleChoiceQuestion constructor: Must have at least one option");
     }
-    this._choices = choices;
+    this._options = options;
     this._answer = "";
   }
+
+  get options(): string[] {
+    return this._options;
+  }
+
   get prompt(): string {
     return this._prompt;
   }
-  get answer(): QuizAnswer {
+
+  get answer(): string {
     return this._answer;
   }
+
   set answer(answer: QuizAnswer) {
     let validChoice: boolean = false;
-    for (let i = 0; i < this._choices.length; i++) {
+    for (let i = 0; i < this._options.length; i++) {
       if (answer === i) {
         validChoice = true;
       }
@@ -44,10 +50,6 @@ export default class MultipleChoiceQuestion implements QuizQuestion, Viewable {
       );
     }
 
-    this._answer = answer;
-  }
-
-  view(): JsxElement {
-    throw new Error("Method not implemented.");
+    this._answer = answer.toString();
   }
 }
