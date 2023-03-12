@@ -6,10 +6,9 @@ import { QuizAnswer } from "./Types";
  * because it will have to be processed in some way in order create a matching
  */
 export default interface QuizQuestion {
+  get questionID(): number;
   get options(): string[] | undefined;
-
   get prompt(): string;
-
   get answer(): QuizAnswer;
   set answer(answer: QuizAnswer);
 }

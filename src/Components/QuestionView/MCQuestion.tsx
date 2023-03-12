@@ -1,4 +1,4 @@
-import { FormEvent, ReactElement, ReactEventHandler } from "react";
+import { ReactElement } from "react";
 import MultipleChoiceQuestion from "../../Model/MultipleChoiceQuestion";
 import { QuizAnswer } from "../../Model/Types";
 
