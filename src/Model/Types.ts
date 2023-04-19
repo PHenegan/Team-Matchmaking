@@ -1,1 +1,0 @@
-export type QuizAnswer = number | string;

@@ -18,7 +18,7 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# nyc test coverage
+# Nyc test coverage
 .nyc_output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
@@ -55,7 +55,7 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# Env file
+# Environment variables folder
 .env
 
 # Next.js build output
@@ -63,6 +63,12 @@ typings/
 
 # Sass cache folder
 .sass-cache/
+
+# Ssl
+.ssl/
+
+# Jwt
+.jwt/
 
 # Production
 build/
