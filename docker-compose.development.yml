@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   backend:
-    container_name: backend
+    container_name: groupgenie-backend
     build:
       context: ./backend
     ports:
@@ -12,7 +12,7 @@ services:
       - ./backend:/backend
       - /frontend/node_modules
   frontend:
-    container_name: frontend
+    container_name: groupgenie-frontend
     build:
       context: ./frontend
     ports:
@@ -20,3 +20,25 @@ services:
     volumes:
       - ./frontend:/frontend
       - /frontend/node_modules
+  db:
+    image: mysql:8
+    container_name: groupgenie-db
+    volumes:
+      # anything in (or mounted in) /docker-entrypoint-initdb.d in the container
+      # will automatically be executed when the container is created
+      - ./db:/docker-entrypoint-initdb.d/:ro
+
+    ports:
+      - '${DEVELOPMENT_DATABASE_PORT}':3306
+
+    restart: unless-stopped
+
+    # Setting up some environment variables for secrets.
+    # Here we are setting the root password
+    # as well as creating an additional user called
+    # webapp.  webapp user password is stored in a secret
+    # file as well.
+    environment:
+      MYSQL_USER: webapp
+      MYSQL_PASSWORD: '${DATABASE_PASSWORD}'
+      MYSQL_ROOT_PASSWORD: '${DATABASE_ROOT_PASSWORD}'
