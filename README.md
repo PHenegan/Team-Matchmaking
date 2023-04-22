@@ -1,4 +1,4 @@
-# <img src="https://i.ibb.co/mtBQPFt/mern-seed.png"/>
+# GroupGenie
 
 ![Node.js](https://img.shields.io/badge/Node.js-v18%20-informational)
 ![React](https://img.shields.io/badge/React-v18%20-informational)
@@ -6,15 +6,21 @@
 ![Docker](https://img.shields.io/badge/Docker-v20-informational)
 ![Cypress](https://img.shields.io/badge/Cypress-v10-informational)
 
-Modern, complete boilerplate for MERN stack development with TypeScript and Docker.
 
 ## Introduction
 
-A modern, clean, and consistent boilerplate using the best practices for Node.js and React, keeping scalability and performance in mind. The advanced structure allows building applications of any size.
+This is the code repository for GroupGenie, a group matchmaking web app designed with the goal of making the process of forming groups easier for professors and better for students. The web app would have 3 main pages: a group creation page for the professors, which would contain selection settings, including the group size, and additional options like adding more "skills" to be evaluated, and preventing people identifying with a particular gender from being isolated in a group (same with URMs). The second page would be the form which students fill out. This page would ask students to enter their schedule availability, their confidence in the previously mentioned skills, and one to two personality archetypes that they align with from a given list. 
 
-## Support
+Due to time constraints from the design/plan finalization for the project (and a teammate bailing for a project in another class last-minute), I wasn't able to get much done past the initial setup, and adding a docker service for the MySQL database which I planned to use. However, I have included in the "design" folder documents detailing my planned design. This includes a rough sketch of a UML diagram for the classes which would be implemented in the backend, an ER diagram for the database which I planned to implement, and a detailed description of how the algorithm would work
 
-You can support the project on [ko-fi](https://ko-fi.com/tamas0547).
+A simple REST API would be used to connect this to the frontend, and wouldn't need many routes (just the 2 forms as post routes, put routes for updating the groups after creation, and get routes for the students and groups in a class.
+
+The frontend would be created with REACT, and would mimic what an LTI would look like in Canvas. In simpler terms, this app was planned initially as an integration into Canvas by Instructure, which is why the UI and theming would mirror that of Canvas.
+
+
+
+## Setup
+The following documentation is taken from the original boilerplate, and details how to get the project working. The original boilerplate repository can be found [here](https://github.com/tamasszoke/mern-seed): 
 
 # Contents
 
